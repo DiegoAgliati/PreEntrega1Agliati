@@ -1,0 +1,58 @@
+/* Estilos generales para la tarjeta de detalle */
+.item-detail {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e; /* Fondo oscuro */
+    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de imágenes */
+.images-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagen principal */
+.main-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+    background-color: #1e1e1e; /* Fondo oscuro para la imagen */
+}
+
+.main-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Contenedor de texto */
+.text-detail-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.title-detail {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+}
+
+.text-detail {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #cccccc;
+}
+
+.text-detail-container .text-detail:last-child {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffffff;
+}

@@ -1,46 +1,36 @@
-import CartWidget from './CartWidget'
-import logo from '../../assets/logo.png'
-import './navbar.scss'
-const NavBar = () => {
-  return (
-    <nav className="navbar navbar-expand-lg custom-navbar">
-    <div className="container-fluid">
-      <a className="navbar-brand" href="#">
-      <img src={logo} alt="Logo" style={{ height: '40px' }} />
-      </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">About</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Shop</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Support</a>
-          </li>
-          <li className="nav-item">
-            <CartWidget />
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  )
-}
+import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png';
+import './navbar.css';
 
-export default NavBar
+const NavBar = () => {
+    return (
+        <nav className="navbar navbar-expand-lg">
+            <div className="container-fluid">
+                <Link to="/" className="navbar-brand d-flex align-items-center">
+                    <img src={logo} alt="Logo" className="me-2" style={{ height: '40px' }} />
+                    <span className="title-brand">Blozzard</span>
+                </Link>
+
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0 categories">
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/category/MMORPG">MMORPG</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/category/Shooter">Shooter</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/category/RPG">RPG</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/category/Estrategia">Estrategia</Link>
+                    </li>
+                </ul>
+                
+                <CartWidget />
+            </div>
+        </nav>
+    );
+};
+
+export default NavBar;

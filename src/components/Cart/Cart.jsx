@@ -33,7 +33,7 @@ const Cart = () => {
       }
     });
   };
-  
+
   const confirmDeleteProduct = (productId) => {
     Swal.fire({
       title: '¿Eliminar producto?',
@@ -59,30 +59,44 @@ const Cart = () => {
       }
     });
   };
-  
+
+  const handleCheckout = (e) => {
+    if (!Array.isArray(cart) || cart.length === 0) {
+      e.preventDefault();
+      Swal.fire({
+        title: 'Carrito vacío',
+        text: 'No hay productos en el carrito',
+        icon: 'warning',
+        background: '#333',
+        color: '#fff'
+      });
+    }
+  };
 
   return (
     <div className="cart-container">
       <div className="cart-wrapper">
         <h1>Productos en el carrito</h1>
-        {cart.map((productCart) => (
+        {Array.isArray(cart) && cart.map((productCart) => (
           <div className="cart-item" key={productCart.id}>
-            <img src={productCart.image} width={100} alt={productCart.name} />
+            <img src={productCart.image} alt={productCart.name} />
             <p>{productCart.name}</p>
             <p>Precio: ${productCart.price}</p>
             <button onClick={() => confirmDeleteProduct(productCart.id)}>
-              <FiTrash size={20} />
+              <FiTrash /> Eliminar
             </button>
           </div>
         ))}
-        <div>
-          <p className="total-price">Precio total: ${totalPrice()}</p>
-          <button className="button-clear" onClick={confirmDeleteCart}>Vaciar carrito</button>
-          <Link to="/checkout" className="finalizar-compra">Finalizar mi compra</Link>
+        <div className="total-price">
+          Precio total: ${typeof totalPrice === 'function' ? totalPrice() : totalPrice}
+        </div>
+        <div className="cart-summary">
+          <button onClick={confirmDeleteCart} className="button-clear">Vaciar carrito</button>
+          <Link to="/checkout" className="finalizar-compra" onClick={handleCheckout}>FINALIZAR MI COMPRA</Link>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

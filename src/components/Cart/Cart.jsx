@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from "../../context/CartContext";
-import "./Cart.css";
+import "./cart.css";
 import { FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';

@@ -19,13 +19,37 @@ const Cart = () => {
       confirmButtonText: 'Sí, vaciar carrito',
       cancelButtonText: 'Cancelar',
       background: '#333',
-      color: '#fff'
+      color: '#fff' 
     }).then((result) => {
       if (result.isConfirmed) {
         deleteCart();
         Swal.fire(
           'Carrito vacío',
           'Todos los productos han sido eliminados',
+          'success'
+        );
+      }
+    });
+  };
+
+  const confirmDeleteProduct = (productId) => {
+    Swal.fire({
+      title: '¿Eliminar producto?',
+      text: '¿Estás seguro de que deseas eliminar este producto del carrito?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+      background: '#333', 
+      color: '#fff' 
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteProductInCart(productId);
+        Swal.fire(
+          'Producto eliminado',
+          'El producto ha sido eliminado del carrito',
           'success'
         );
       }
@@ -41,7 +65,7 @@ const Cart = () => {
             <img src={productCart.image} width={100} alt={productCart.name} />
             <p>{productCart.name}</p>
             <p>Precio: ${productCart.price}</p>
-            <button onClick={() => deleteProductInCart(productCart.id)}>
+            <button onClick={() => confirmDeleteProduct(productCart.id)}>
               <FiTrash size={20} />
             </button>
           </div>

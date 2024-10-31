@@ -64,6 +64,19 @@
 }
 .cartwidget{
     color: white;
+    width: 22%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cartwidget .icon-cartwidget {
+    font-size: 35px;
+    color: #009AE4;
+}
+.cartwidget .empty-cartwidget {
+    font-size: 30px;
+    color: white;
 }
 @media (max-width: 768px) {
     .navbar .categories {

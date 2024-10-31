@@ -4,10 +4,14 @@ const Item = ({ product }) => {
     <div className="item">
       <img src={product.image} className="img-item" alt={product.name} width={100} />
       <p className="text-item">{product.name}</p>
-      <p className="text-item">${product.price}</p>
-      <Link to={"/detail/" + product.id} className="details-link">
-      Ver detalles</Link>
-
+      {product.price > 0 ? (
+        <p className="text-item">${product.price}</p>
+      ) : (
+        <span className="text-item">Gratuito</span> 
+      )}
+      <Link to={`/detail/` + product.id} className="details-link">
+        Ver detalles
+      </Link>
     </div>
   );
 };

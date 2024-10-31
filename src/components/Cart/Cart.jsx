@@ -19,19 +19,21 @@ const Cart = () => {
       confirmButtonText: 'Sí, vaciar carrito',
       cancelButtonText: 'Cancelar',
       background: '#333',
-      color: '#fff' 
+      color: '#fff'
     }).then((result) => {
       if (result.isConfirmed) {
         deleteCart();
-        Swal.fire(
-          'Carrito vacío',
-          'Todos los productos han sido eliminados',
-          'success'
-        );
+        Swal.fire({
+          title: 'Carrito vacío',
+          text: 'Todos los productos han sido eliminados',
+          icon: 'success',
+          background: '#333',
+          color: '#fff'
+        });
       }
     });
   };
-
+  
   const confirmDeleteProduct = (productId) => {
     Swal.fire({
       title: '¿Eliminar producto?',
@@ -42,19 +44,22 @@ const Cart = () => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, eliminar',
       cancelButtonText: 'Cancelar',
-      background: '#333', 
-      color: '#fff' 
+      background: '#333',
+      color: '#fff'
     }).then((result) => {
       if (result.isConfirmed) {
         deleteProductInCart(productId);
-        Swal.fire(
-          'Producto eliminado',
-          'El producto ha sido eliminado del carrito',
-          'success'
-        )
+        Swal.fire({
+          title: 'Producto eliminado',
+          text: 'El producto ha sido eliminado del carrito',
+          icon: 'success',
+          background: '#333',
+          color: '#fff'
+        });
       }
-    })
-  }
+    });
+  };
+  
 
   return (
     <div className="cart-container">

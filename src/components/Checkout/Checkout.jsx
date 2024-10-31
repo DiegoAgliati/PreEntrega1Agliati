@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Checkout.css';
+import './checkout.css';
 import FormCheckout from './FormCheckout';
 import { useContext } from 'react';
 import { Timestamp, addDoc, collection } from 'firebase/firestore';

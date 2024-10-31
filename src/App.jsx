@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="app-container">
         <BrowserRouter>
-          <CartProvider> {/* Envolvemos toda la app con CartProvider */}
+          <CartProvider>
           <NavBar />
           <Routes>
             <Route
@@ -34,7 +34,7 @@ function App() {
           </CartProvider>
         </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App;

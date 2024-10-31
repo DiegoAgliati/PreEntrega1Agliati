@@ -51,10 +51,10 @@ const Cart = () => {
           'Producto eliminado',
           'El producto ha sido eliminado del carrito',
           'success'
-        );
+        )
       }
-    });
-  };
+    })
+  }
 
   return (
     <div className="cart-container">
@@ -77,7 +77,7 @@ const Cart = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

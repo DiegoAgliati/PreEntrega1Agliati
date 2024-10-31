@@ -1,1 +1,4 @@
-# Ecommerce - Diego
+# Ecommerce - Blozzard
+
+## Sobre el proyecto
+    
